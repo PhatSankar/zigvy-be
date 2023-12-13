@@ -1,4 +1,4 @@
-import { Controller, Get, Query } from '@nestjs/common';
+import { Controller, Get, Param, Query } from '@nestjs/common';
 import { PostService } from './post.service';
 
 @Controller('posts')
@@ -14,5 +14,10 @@ export class PostController {
       return await this.postSerivce.getListPost(title);
     }
     return await this.postSerivce.getListPostInPage(page, limit, title);
+  }
+
+  @Get(':id')
+  async getPostDetail(@Param('id') postId: string) {
+    return await this.postSerivce.getDetailPost(postId);
   }
 }

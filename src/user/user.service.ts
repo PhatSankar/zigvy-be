@@ -12,4 +12,11 @@ export class UserService {
     const result = await this.httpService.axiosRef.get(`${env.BASE_URL}users`);
     return result.data;
   }
+
+  async getUserDetail(userId: string) {
+    const result = await this.httpService.axiosRef.get(
+      `${env.BASE_URL}users/${userId}`,
+    );
+    return result.data;
+  }
 }
