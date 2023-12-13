@@ -25,4 +25,11 @@ export class PostService {
     );
     return result.data;
   }
+
+  async getDetailPost(postId: string) {
+    const result = await this.httpService.axiosRef.get(
+      `${env.BASE_URL}posts/${postId}`,
+    );
+    return result.data;
+  }
 }
